@@ -58,7 +58,7 @@ body {
   align-items: center;
 }
 #container {
-  border: 1px solid red;
+	box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.25);
   width: 400px;
   height: 750px;
 }
@@ -70,8 +70,8 @@ body {
 		background-repeat: no-repeat;
 		background-size:cover;
 		background-position-x: center;
-		background-position-y: 89%;
-		height: 25%;
+		background-position-y: 84%;
+		height: 20%;
 	}
 		#formIcon {
 			width: 100px;
@@ -97,13 +97,48 @@ body {
 			#socmedIcons > div {
 				display: flex;
 				border-radius: 50%;
-				padding: 7px;
-				width: 37.5px;
-				height: 37.5px;
-				border: 2px solid gray;
+				padding: 9px;
+				width: 40px;
+				height: 40px;
+				border: 2px solid lightgray;
 			}
 		h6 {
 			color: gray;
 			font-size: 14px;
+		}
+	
+	form {
+		height: 55%;
+		display: flex;
+		justify-content: space-between;
+		flex-direction: column;
+		align-items: center;
+	}
+		input, select {
+			color: gray;
+			border: none;
+			background-color: #EFEFEF;
+			width: 70%;
+			border-radius: 20px;
+			padding: 1rem 1.25rem;
+		}
+		select {
+			width: 80.1%;
+		}
+		#submitButton {
+			box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.25);
+			border: none;
+			font-size: 15px;
+			font-weight: bold;
+			letter-spacing: 1px;
+			color: white;
+			background-color: #9767f8;
+			width: 80.1%;
+			border-radius: 20px;
+			padding: 0.875rem 0.9rem;
+		}
+		h6 > span {
+			color: #9767f8;
+			font-weight: bold;
 		}
 	
