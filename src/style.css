@@ -61,11 +61,19 @@ form {
   height: 750px;
 }
 	#backgroundImg {
+		display: flex;
+		justify-content: center;
+		align-items: flex-end;
 		background-image: url('/src/img/wave.svg');
 		background-repeat: no-repeat;
 		background-size:cover;
 		background-position-x: center;
-		background-position-y: 84%;
+		background-position-y: 89%;
 		width: 100%;
-		height: 20%;
+		height: 25%;
 	}
+		#formIcon {
+			width: 100px;
+		}
+
+	
