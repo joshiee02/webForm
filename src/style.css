@@ -137,6 +137,9 @@ body {
 			border-radius: 20px;
 			padding: 0.875rem 0.9rem;
 		}
+		#submitButton:active {
+			background-color: #6b26f6;
+		}
 		h6 > span {
 			color: #9767f8;
 			font-weight: bold;
