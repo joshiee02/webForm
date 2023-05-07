@@ -117,6 +117,9 @@ body {
 		flex-direction: column;
 		align-items: center;
 	}
+		form > span {
+			display: none;
+		}
 		input, select {
 			color: gray;
 			border: none;
@@ -128,20 +131,41 @@ body {
 		input:focus, select:focus {
 			outline: 1px solid gray;
 		}
+		/* if valid styles */
 		input:valid, select:valid {
 			border: 1px solid green;
+		}
+		/* remove green border for confirmPassword */
+		#confirmPassword {
+			border: none;
 		}
 		input:valid:focus, select:valid:focus {
 			outline: none;
 		}
-		input:valid + span::after, select:valid + span::after{
-			content: '✓ Nice email you got there!';
+		.valid {
+			display: block;
 			position: relative;
 			top: -6px;
-			right: 75px;
+			right: 80px;
 			font-size: 11px;
 			color: green;
 		}
+		/* if invalid styles */
+		input:invalid, select:invalid {
+			border: 1px solid red;
+		}
+		input:invalid:focus, select:invalid:focus {
+			outline: none;
+		}	
+		.invalid {
+			display: block;
+			position: relative;
+			top: -6px;
+			right: 53px;
+			font-size: 11px;
+			color: red;
+		}
+
 		select {
 			width: 80.1%;
 		}

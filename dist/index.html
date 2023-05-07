@@ -8,6 +8,7 @@
   <title>Document</title>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
   <link rel="stylesheet" href="/src/style.css">
+  <script defer type="module" src="/src/index.js"></script>
 </head>
 
 <body>
@@ -26,7 +27,7 @@
     </header>
     <form novalidate>
       <input type="email" id="email" name="email" placeholder="Email" required>
-      <span></span>
+      <span id="emailError" aria-live="polite"></span>
       <select id="country" name="country" class="form-control" required>
         <option value="" disabled selected>Select a Country</option>
         <option value="Afghanistan">Afghanistan</option>
@@ -275,21 +276,18 @@
         <option value="Zambia">Zambia</option>
         <option value="Zimbabwe">Zimbabwe</option>
       </select>
-      <span class="valid"></span>
       <input id="zip" name="zip" type="zip" inputmode="numeric" pattern="\d{5}" placeholder="Zip Code" required>
-      <span class="valid"></span>
-      <input type="password" id="password" name="password" placeholder="Password" required>
-      <span class="valid"></span>
+      <span id="zipError" aria-live="polite"></span>
+      <input type="password" id="password" name="password" placeholder="Password" minlength="6" maxlength="30" required>
+      <span id="pwError" aria-live="polite"></span>
       <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" required>
-      <span class="valid"></span>
+      <span id="confirm_pwError" aria-live="polite"></span>
       <button id="submitButton">CREATE ACCOUNT</button>
       <h6>Already have an account?
         <a href="">Sign In</a>
       </h6>
     </form>
   </div>
-
-  <script src="/src/index.js"></script>
 </body>
 
 </html>
