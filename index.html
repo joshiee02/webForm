@@ -276,9 +276,9 @@
         <option value="Zambia">Zambia</option>
         <option value="Zimbabwe">Zimbabwe</option>
       </select>
-      <input id="zip" name="zip" type="zip" inputmode="numeric" pattern="\d{5}" placeholder="Zip Code" required>
+      <input id="zip" name="zip" type="zip" inputmode="numeric" pattern="^[A-Za-z0-9- ]{3,12}$" placeholder="Zip Code" required>
       <span id="zipError" aria-live="polite"></span>
-      <input type="password" id="password" name="password" placeholder="Password" minlength="6" maxlength="30" required>
+      <input type="password" id="password" name="password" placeholder="Password" minlength="6" maxlength="30" pattern="^(?=.*[A-Z]).+$" required>
       <span id="pwError" aria-live="polite"></span>
       <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" required>
       <span id="confirm_pwError" aria-live="polite"></span>
