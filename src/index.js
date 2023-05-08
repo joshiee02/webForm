@@ -1,63 +1,120 @@
 const email = document.querySelector('#email');
+const emailError = document.querySelector('#emailError');
+const country = document.querySelector('#country');
 const zip = document.querySelector('#zip');
+const zipError = document.querySelector('#zipError');
 const password = document.querySelector('#password');
-const confirmPassword = document.querySelector('#confirmPassword');
+const pwError = document.querySelector('#pwError');
+// const confirmPassword = document.querySelector('#confirmPassword');
 const submitButton = document.querySelector('#submitButton');
 
 submitButton.addEventListener('click', (event) => {
   event.preventDefault();
 });
 
-email.addEventListener('input', () => {
-  const emailError = document.querySelector('#emailError');
-  if (!email.validity.valid) {
+function showEmailError() {
+  if (email.validity.valueMissing) {
     emailError.classList.remove('valid');
     emailError.classList.add('invalid');
-    emailError.textContent = '✕ Please enter a valid email address';
-  } else {
+    emailError.textContent = '✕ You need to enter an email address.';
+  } else if (email.validity.typeMismatch) {
+    emailError.classList.remove('valid');
+    emailError.classList.add('invalid');
+    emailError.textContent = '✕ Entered value needs to be an email address.';
+  }
+}
+
+email.addEventListener('input', () => {
+  if (email.validity.valid) {
     emailError.classList.remove('invalid');
     emailError.classList.add('valid');
     emailError.textContent = '✓ Your email looks good!';
+  } else {
+    showEmailError();
   }
 });
 
-zip.addEventListener('input', () => {
-  const zipError = document.querySelector('#zipError');
-  if (!zip.validity.valid) {
+country.addEventListener('input', () => {
+  if (country.value) {
+    country.style.color = 'black';
+  }
+});
+
+function showZipError() {
+  if (zip.validity.valueMissing) {
     zipError.classList.remove('valid');
     zipError.classList.add('invalid');
-    zipError.textContent = '✕ Please enter a valid zip code';
-  } else {
+    zipError.textContent = '✕ You need to enter a zip code.';
+  } else if (zip.validity.patternMismatch) {
+    zipError.classList.remove('valid');
+    zipError.classList.add('invalid');
+    zipError.textContent = '✕ Entered value needs to be a zip code.';
+  }
+}
+
+zip.addEventListener('input', () => {
+  if (zip.validity.valid) {
     zipError.classList.remove('invalid');
     zipError.classList.add('valid');
     zipError.textContent = '✓ Your zip code looks good!';
+  } else {
+    showZipError();
   }
 });
 
-password.addEventListener('input', () => {
-  const pwError = document.querySelector('#pwError');
-  if (!password.validity.valid) {
+function showPasswordError() {
+  if (password.validity.valueMissing) {
     pwError.classList.remove('valid');
     pwError.classList.add('invalid');
-    pwError.textContent = '✕ Please enter a valid password';
-  } else {
+    pwError.textContent = '✕ You need to enter a password.';
+  } else if (password.validity.patternMismatch) {
+    pwError.classList.remove('valid');
+    pwError.classList.add('invalid');
+    pwError.textContent = '✕ Your passwords needs to have an upper case letter.';
+  } else if (password.validity.tooShort) {
+    pwError.classList.remove('valid');
+    pwError.classList.add('invalid');
+    pwError.textContent = `✕ Your password should have at least ${password.minLength} letters.`;
+  } else if (password.validity.tooLong) {
+    pwError.classList.remove('valid');
+    pwError.classList.add('invalid');
+    pwError.textContent = `✕ Your password has exceed the max length of ${password.maxLength}`;
+  }
+}
+
+password.addEventListener('input', () => {
+  if (password.validity.valid) {
     pwError.classList.remove('invalid');
     pwError.classList.add('valid');
     pwError.textContent = '✓ Your password looks good!';
-  }
-});
-
-confirmPassword.addEventListener('input', () => {
-  const confirmPwError = document.querySelector('#confirm_pwError');
-  if (password.value !== confirmPassword.value) {
-    confirmPassword.style.border = '1px solid red';
-    confirmPwError.classList.remove('valid');
-    confirmPwError.classList.add('invalid');
-    confirmPwError.textContent = '✕ Your password is not the same';
   } else {
-    confirmPwError.classList.remove('invalid');
-    confirmPassword.style.border = '1px solid green';
-    confirmPwError.classList.add('valid');
-    confirmPwError.textContent = '✓ Your password is the same!';
+    showPasswordError();
   }
 });
+// password.addEventListener('input', () => {
+//   const pwError = document.querySelector('#pwError');
+//   if (!password.validity.valid) {
+//     pwError.classList.remove('valid');
+//     pwError.classList.add('invalid');
+//     pwError.textContent = '✕ Please enter a valid password';
+//   } else {
+//     pwError.classList.remove('invalid');
+//     pwError.classList.add('valid');
+//     pwError.textContent = '✓ Your password looks good!';
+//   }
+// });
+
+// confirmPassword.addEventListener('input', () => {
+//   const confirmPwError = document.querySelector('#confirm_pwError');
+//   if (password.value !== confirmPassword.value) {
+//     confirmPassword.style.border = '1px solid red';
+//     confirmPwError.classList.remove('valid');
+//     confirmPwError.classList.add('invalid');
+//     confirmPwError.textContent = '✕ Your password is not the same';
+//   } else {
+//     confirmPwError.classList.remove('invalid');
+//     confirmPassword.style.border = '1px solid green';
+//     confirmPwError.classList.add('valid');
+//     confirmPwError.textContent = '✓ Your password is the same!';
+//   }
+// });
