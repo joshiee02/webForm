@@ -5,7 +5,8 @@ const zip = document.querySelector('#zip');
 const zipError = document.querySelector('#zipError');
 const password = document.querySelector('#password');
 const pwError = document.querySelector('#pwError');
-// const confirmPassword = document.querySelector('#confirmPassword');
+const confirmPassword = document.querySelector('#confirmPassword');
+const confirmPwError = document.querySelector('#confirm_pwError');
 const submitButton = document.querySelector('#submitButton');
 
 submitButton.addEventListener('click', (event) => {
@@ -34,8 +35,10 @@ email.addEventListener('input', () => {
   }
 });
 
-country.addEventListener('input', () => {
-  if (country.value) {
+country.addEventListener('change', () => {
+  if (!country.value) {
+    country.style.color = 'gray';
+  } else {
     country.style.color = 'black';
   }
 });
@@ -91,30 +94,21 @@ password.addEventListener('input', () => {
     showPasswordError();
   }
 });
-// password.addEventListener('input', () => {
-//   const pwError = document.querySelector('#pwError');
-//   if (!password.validity.valid) {
-//     pwError.classList.remove('valid');
-//     pwError.classList.add('invalid');
-//     pwError.textContent = '✕ Please enter a valid password';
-//   } else {
-//     pwError.classList.remove('invalid');
-//     pwError.classList.add('valid');
-//     pwError.textContent = '✓ Your password looks good!';
-//   }
-// });
 
-// confirmPassword.addEventListener('input', () => {
-//   const confirmPwError = document.querySelector('#confirm_pwError');
-//   if (password.value !== confirmPassword.value) {
-//     confirmPassword.style.border = '1px solid red';
-//     confirmPwError.classList.remove('valid');
-//     confirmPwError.classList.add('invalid');
-//     confirmPwError.textContent = '✕ Your password is not the same';
-//   } else {
-//     confirmPwError.classList.remove('invalid');
-//     confirmPassword.style.border = '1px solid green';
-//     confirmPwError.classList.add('valid');
-//     confirmPwError.textContent = '✓ Your password is the same!';
-//   }
-// });
+function showConfirmPasswordError() {
+  if (password.value !== confirmPassword.value) {
+    confirmPwError.classList.remove('valid');
+    confirmPwError.classList.add('invalid');
+    confirmPwError.textContent = '✕ Your passwords do not match';
+  }
+}
+
+confirmPassword.addEventListener('input', () => {
+  if (confirmPassword.validity.valid) {
+    confirmPwError.classList.remove('invalid');
+    confirmPwError.classList.add('valid');
+    confirmPwError.textContent = '';
+  } else {
+    showConfirmPasswordError();
+  }
+});
