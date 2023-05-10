@@ -1,3 +1,5 @@
+import './style.css';
+
 const email = document.querySelector('#email');
 const emailError = document.querySelector('#emailError');
 const country = document.querySelector('#country');
