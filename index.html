@@ -19,9 +19,9 @@
     <header>
       <h1>REGISTER</h1>
       <div id="socmedIcons">
-        <div><img src="/src/img/facebook.png" alt=""></div>
-        <div><img src="/src/img/google.png" alt=""></div>
-        <div><img src="/src/img/yahoo.png" alt=""></div>
+        <div id="facebookIcon"></div>
+        <div id="googleIcon"></div>
+        <div id="yahooIcon"></div>
       </div>
       <h6>or use your email address:</h6>
     </header>
@@ -278,9 +278,9 @@
       </select>
       <input id="zip" name="zip" type="zip" inputmode="numeric" pattern="^[A-Za-z0-9- ]{3,12}$" placeholder="Zip Code" required>
       <span id="zipError" aria-live="polite"></span>
-      <input type="password" id="password" name="password" placeholder="Password" minlength="6" maxlength="30" pattern="^(?=.*[A-Z]).+$" required>
+      <input type="password" id="password" name="password" placeholder="Password" minlength="6" maxlength="30" autocomplete="new-password" pattern="^(?=.*[A-Z]).+$" required>
       <span id="pwError" aria-live="polite"></span>
-      <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" minlength="6" maxlength="30" pattern="^(?=.*[A-Z]).+$" required>
+      <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" minlength="6" maxlength="30" autocomplete="new-password" pattern="^(?=.*[A-Z]).+$" required>
       <span id="confirm_pwError" aria-live="polite"></span>
       <button id="submitButton">CREATE ACCOUNT</button>
       <h6>Already have an account?
